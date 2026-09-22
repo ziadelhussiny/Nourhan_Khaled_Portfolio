@@ -33,14 +33,6 @@ export function Hero() {
       >
         social, but strategic
       </Motion.div>
-      <Motion.div
-        className="sticker sticker-markets"
-        animate={reduceMotion ? undefined : { y: [0, 9, 0], rotate: [6, 9, 6] }}
-        transition={{ duration: 5.4, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        Cairo → Riyadh → Dubai
-      </Motion.div>
-
       <div className="hero-copy">
         <Motion.p
           className="eyebrow hero-eyebrow"
@@ -119,6 +111,13 @@ export function Hero() {
         <div className="card-chips">
           <span>Strategy</span><span>Stories</span><span>Direction</span>
         </div>
+        <Motion.div
+          className="sticker sticker-markets"
+          animate={reduceMotion ? undefined : { y: [0, 9, 0], rotate: [6, 9, 6] }}
+          transition={{ duration: 5.4, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          Cairo → Riyadh → Dubai
+        </Motion.div>
       </Motion.div>
 
       <div className="scroll-cue" aria-hidden="true">

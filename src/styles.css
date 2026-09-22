@@ -422,10 +422,11 @@ button {
 }
 
 .sticker-markets {
-  right: 7%;
-  bottom: 15%;
+  right: -1.25rem;
+  bottom: -2.6rem;
   background: var(--sky);
   transform: rotate(6deg);
+  pointer-events: none;
 }
 
 .scroll-cue {
