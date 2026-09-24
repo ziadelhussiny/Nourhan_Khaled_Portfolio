@@ -87,7 +87,7 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
+  gap: clamp(0.65rem, 1.2vw, 1rem);
   align-items: start;
 }
 
@@ -96,22 +96,79 @@
   padding: 0.75rem;
   border: 1px solid var(--ink);
   background: #fffdf7;
-  box-shadow: 5px 5px 0 var(--ink);
-}
-
-.video-project-card:nth-child(3n + 2) {
-  margin-top: 2.5rem;
-}
-
-.video-project-card:nth-child(3n) {
-  margin-top: 1rem;
+  box-shadow: 4px 4px 0 var(--ink);
 }
 
 .video-placeholder,
-.field-video {
+.field-video,
+.instagram-embed-shell,
+.local-media-shell,
+.instagram-poster-shell {
   width: 100%;
   aspect-ratio: 4 / 5;
   border: 1px solid var(--ink);
+}
+
+.local-media-shell,
+.instagram-poster-shell {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  background: var(--ink);
+}
+
+.local-media-shell .field-video {
+  height: 100%;
+  border: 0;
+}
+
+.instagram-poster-shell img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.instagram-embed-shell {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+}
+
+.instagram-embed {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #fff;
+}
+
+.instagram-open-link {
+  position: absolute;
+  z-index: 2;
+  right: 0.55rem;
+  bottom: 0.55rem;
+  left: 0.55rem;
+  min-height: 2.5rem;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  color: white;
+  background: rgba(18, 18, 18, 0.9);
+  font-size: 0.66rem;
+  font-weight: 850;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+}
+
+.instagram-open-link svg {
+  width: 0.95rem;
+  flex: 0 0 auto;
 }
 
 .field-video {
@@ -275,6 +332,105 @@
   text-align: right;
 }
 
+.portfolio-library {
+  scroll-margin-top: 7rem;
+  width: var(--content);
+  margin: clamp(4rem, 7vw, 7rem) auto 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  align-items: stretch;
+}
+
+.resource-panel {
+  padding: clamp(1.35rem, 3vw, 2.5rem);
+  border: 2px solid var(--ink);
+}
+
+.strategy-library {
+  background: var(--acid);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.library-kicker {
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid currentColor;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.library-kicker span {
+  font-size: 0.64rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+}
+
+.library-kicker strong {
+  font-family: Impact, "Arial Black", sans-serif;
+  font-size: 2.5rem;
+  line-height: 0.8;
+}
+
+.resource-panel h3 {
+  max-width: 28rem;
+  margin: 1.6rem 0 2rem;
+  font-family: Georgia, serif;
+  font-size: clamp(1.65rem, 2.6vw, 2.75rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.04;
+}
+
+.strategy-link-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.strategy-link-list a {
+  min-width: 0;
+  min-height: 3rem;
+  padding: 0.7rem 0.75rem;
+  border: 1px solid currentColor;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.65rem;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.strategy-link-list a:hover {
+  transform: translateY(-2px);
+}
+
+.strategy-link-list a:hover {
+  color: white;
+  background: var(--ink);
+}
+
+.strategy-link-list span {
+  font-size: 0.58rem;
+  font-weight: 800;
+  opacity: 0.65;
+}
+
+.strategy-link-list strong {
+  overflow: hidden;
+  font-size: 0.72rem;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.strategy-link-list svg {
+  width: 0.95rem;
+}
+
 .video-upload-note {
   width: var(--content);
   margin: 4.5rem auto 0;
@@ -328,15 +484,37 @@
   align-content: start;
 }
 
-.brand-cloud > span {
+.brand-cloud > a {
   padding: 0.8rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.22);
-  display: flex;
-  align-items: baseline;
+  display: grid;
+  grid-template-columns: auto 3rem minmax(0, 1fr) auto;
+  align-items: center;
   gap: 0.8rem;
+  color: inherit;
   font-family: Impact, "Arial Black", sans-serif;
   font-size: clamp(1.15rem, 2vw, 2rem);
+  text-decoration: none;
   text-transform: uppercase;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.brand-cloud > a:hover {
+  padding-left: 0.4rem;
+  color: var(--acid);
+}
+
+.brand-cloud > a .brand-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.brand-cloud > a svg {
+  width: 0.9rem;
+  margin-left: auto;
+  flex: 0 0 auto;
 }
 
 .brand-cloud i {
@@ -346,6 +524,26 @@
   font-style: normal;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.5);
+}
+
+.brand-logo {
+  width: 3rem;
+  aspect-ratio: 1;
+  padding: 0.28rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: white;
+}
+
+.brand-logo img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  object-fit: contain;
 }
 
 .skills-tools-grid {
@@ -444,22 +642,18 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .video-project-card:nth-child(3n + 2),
-  .video-project-card:nth-child(3n) {
-    margin-top: 0;
-  }
-
-  .video-project-card:nth-child(even) {
-    margin-top: 2rem;
-  }
-
   .video-upload-note {
     margin-top: 3.75rem;
   }
 
   .brand-roster,
-  .skills-tools-grid {
+  .skills-tools-grid,
+  .portfolio-library {
     grid-template-columns: 1fr;
+  }
+
+  .strategy-link-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -490,12 +684,11 @@
     grid-template-columns: 1fr;
   }
 
-  .video-project-card:nth-child(even) {
-    margin-top: 0;
-  }
-
   .video-placeholder,
-  .field-video {
+  .field-video,
+  .instagram-embed-shell,
+  .local-media-shell,
+  .instagram-poster-shell {
     aspect-ratio: 5 / 6;
   }
 
@@ -527,8 +720,17 @@
     grid-template-columns: 1fr;
   }
 
-  .brand-cloud > span {
-    font-size: 1.45rem;
+  .brand-cloud > a {
+    grid-template-columns: auto 2.75rem minmax(0, 1fr) auto;
+    font-size: 1.25rem;
+  }
+
+  .brand-logo {
+    width: 2.75rem;
+  }
+
+  .strategy-link-list {
+    grid-template-columns: 1fr;
   }
 
   .tool-list > div {

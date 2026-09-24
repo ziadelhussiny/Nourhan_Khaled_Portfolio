@@ -18,74 +18,85 @@ export const stats = [
 
 export const marketingFields = [
   'All',
-  'F&B',
-  'Real Estate',
-  'B2B & Industrial',
-  'Tech & Startups',
-  'Health & Beauty',
-]
-
-export const videoProjects = [
-  {
-    id: 'zadna-fnb',
-    field: 'F&B',
-    brand: 'Zadna Cafe',
-    title: 'Everyday appetite stories',
-    format: 'Reels · Stories · Direction',
-    accent: 'acid',
-    videoSrc: '',
-  },
-  {
-    id: 'top-management-real-estate',
-    field: 'Real Estate',
-    brand: 'Top Management',
-    title: 'Property stories that qualify',
-    format: 'Showcase reels · Lead funnel',
-    accent: 'sky',
-    videoSrc: '',
-  },
-  {
-    id: 'westwood-industrial',
-    field: 'B2B & Industrial',
-    brand: 'Westwood WPC',
-    title: 'Technical, made tangible',
-    format: 'Product story · B2B content',
-    accent: 'orange',
-    videoSrc: '',
-  },
-  {
-    id: 'marketiq-tech',
-    field: 'Tech & Startups',
-    brand: 'MarketIQ',
-    title: 'Launch thinking in motion',
-    format: 'Short-form · Community growth',
-    accent: 'violet',
-    videoSrc: '',
-  },
-  {
-    id: 'alyaqout-health',
-    field: 'Health & Beauty',
-    brand: 'Alyaqout Clinics',
-    title: 'Education without the scroll-past',
-    format: 'Educational reels · Stories',
-    accent: 'paper',
-    videoSrc: '',
-  },
+  'Reels',
+  'Posts',
+  'Carousels',
 ]
 
 export const brandRoster = [
-  'Zealnx',
-  'Westwood WPC',
-  'Zadna Cafe',
-  'Zadna Factory',
-  'Top Management',
-  'MarketIQ',
-  'Arabica Cafe',
-  'Le Cafe Crochet',
-  'Authentiquebyss_',
-  'Sunbox.eg',
-  'Alyaqout Clinics',
+  { name: 'Crystal Shine', url: 'https://www.instagram.com/crystal.shine.clinic/', logoSrc: '/brand-logos/01-crystal-shine.png' },
+  { name: 'Alyaqout Clinics', url: 'https://www.instagram.com/alyaqoutclinics/', logoSrc: '/brand-logos/02-alyaqout-clinics.png' },
+  { name: 'Zadna Egypt', url: 'https://www.instagram.com/zadna_egypt/', logoSrc: '/brand-logos/03-zadna-egypt.png' },
+  { name: 'NALA Global', url: 'https://www.instagram.com/nala.global/', logoSrc: '/brand-logos/04-nala-global.png' },
+  { name: 'Nowar Saif', url: 'https://www.instagram.com/nowar.saif/', logoSrc: '/brand-logos/05-nowar-saif.png' },
+  { name: 'Hoss MEA', url: 'https://www.instagram.com/hoss.mea/', logoSrc: '/brand-logos/06-hoss-mea.png' },
+  { name: 'Westwood WPC', url: 'https://www.instagram.com/westwood_wpc/', logoSrc: '/brand-logos/07-westwood-wpc.png' },
+  { name: 'Top Management', url: 'https://www.instagram.com/topmanagementrealestate/', logoSrc: '/brand-logos/08-top-management.png' },
+  { name: 'Melodies Restaurant', url: 'https://www.instagram.com/melodies.restaurant/', logoSrc: '/brand-logos/09-melodies-restaurant.png' },
+  { name: 'Le Cafe Crochet', url: 'https://www.instagram.com/lecafecrochet/', logoSrc: '/brand-logos/10-le-cafe-crochet.png' },
+  { name: 'Arabica Spectrum', url: 'https://www.instagram.com/arabicaspectrum/', logoSrc: '/brand-logos/11-arabica-spectrum.png' },
+  { name: 'Dr. Mahmoud Shaker', url: 'https://www.instagram.com/dr.mahmoudshaker/', logoSrc: '/brand-logos/12-dr-mahmoud-shaker.png' },
+  { name: 'KMT Egypt Tours', url: 'https://www.instagram.com/kmt.egytours/', logoSrc: '/brand-logos/13-kmt-egypt-tours.png' },
+  { name: 'Jasmine Beauty', url: 'https://www.instagram.com/jasmine_beautymakeup___eg/', logoSrc: '/brand-logos/14-jasmine-beauty.png' },
 ]
+
+export const strategyDecks = [
+  { label: 'Strategy deck 01', url: 'https://canva.link/s1f1cvv1x8szvmh' },
+  { label: 'Strategy deck 02', url: 'https://canva.link/lzph4gkn7qq9zuw' },
+  { label: 'Strategy deck 03', url: 'https://canva.link/4vjylkpwew29936' },
+  { label: 'Strategy deck 04', url: 'https://canva.link/ba7n3u9gyz8owq0' },
+  { label: 'Strategy deck 05', url: 'https://canva.link/uxvjh72ehmhpgn5' },
+]
+
+export const contentSamples = [
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DXMa1ybjIcN/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DYfH9i-MNPy/' },
+  { type: 'Carousel', url: 'https://www.instagram.com/p/DZm6_7mjGig/?img_index=2' },
+  { type: 'Post', url: 'https://www.instagram.com/p/DW1ByxXjH1D/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DZcGTXUs3o4/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DaSVljjs54x/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DacYLfosA4w/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DdQq8SWM5-S/' },
+  { type: 'Post', url: 'https://www.instagram.com/p/DdgMMukDJfp/' },
+  { type: 'Post', url: 'https://www.instagram.com/p/DdODy_Jse-b/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DX7C8pyM74V/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DXtyQMxjChB/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DXJ6EgZDCUl/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DaKxfhclOGj/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DZ8GpAPDUxM/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DZz4Q9FClGZ/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DZrsblfFDS3/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DZLvWAysnYQ/' },
+  { type: 'Post', url: 'https://www.instagram.com/p/DNJPRKAo1BN/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DMqRt7oMyBt/' },
+  { type: 'Reel', url: 'https://www.instagram.com/reel/DQttFlSAqMH/' },
+  { type: 'Post', url: 'https://www.instagram.com/p/DWPtfoEgiTe/' },
+]
+
+const sampleField = {
+  Reel: 'Reels',
+  Post: 'Posts',
+  Carousel: 'Carousels',
+}
+
+const playableVideoSamples = new Set([1, 5, 6, 7, 8, 11, 13, 14, 15, 16, 17, 18, 20])
+
+export const videoProjects = contentSamples.map((sample, index) => {
+  const sampleNumber = index + 1
+  const mediaName = `sample-${String(sampleNumber).padStart(2, '0')}`
+  const hasLocalVideo = playableVideoSamples.has(sampleNumber)
+
+  return {
+    id: `instagram-${mediaName}`,
+    field: sampleField[sample.type],
+    brand: 'Live Instagram work',
+    title: `${sample.type} sample ${String(sampleNumber).padStart(2, '0')}`,
+    format: hasLocalVideo ? 'Play here · Open on Instagram' : 'Preview · Open on Instagram',
+    instagramUrl: sample.url,
+    videoSrc: hasLocalVideo ? `/portfolio-media/${mediaName}.mp4` : '',
+    posterSrc: hasLocalVideo ? '' : `/portfolio-media/${mediaName}.jpg`,
+  }
+})
 
 export const skillSet = [
   '360° Social Strategy',

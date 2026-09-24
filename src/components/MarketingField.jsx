@@ -1,33 +1,60 @@
 import { useState } from 'react'
 import { AnimatePresence, motion as Motion, useReducedMotion } from 'framer-motion'
-import { Film, Plus } from 'lucide-react'
+import { ArrowUpRight, Film, Plus } from 'lucide-react'
 import {
   brandRoster,
   marketingFields,
   skillSet,
+  strategyDecks,
   toolSet,
   videoProjects,
 } from '../data/portfolio'
-import { filterVideoProjects } from '../lib/video-projects'
+import { filterVideoProjects, getInstagramEmbedUrl } from '../lib/video-projects'
 import { Reveal } from './Reveal'
 import './MarketingField.css'
 
 function VideoPreview({ project }) {
   if (project.videoSrc) {
     return (
-      <video
-        className="field-video"
-        controls
-        playsInline
-        preload="none"
-        aria-label={`${project.title} — ${project.brand}`}
-      >
-        <source src={project.videoSrc} type="video/mp4" />
-        {project.captionsSrc && (
-          <track kind="captions" src={project.captionsSrc} srcLang="en" label="English" default />
-        )}
-        Your browser does not support embedded video.
-      </video>
+      <div className="local-media-shell">
+        <video
+          className="field-video"
+          controls
+          playsInline
+          preload="metadata"
+          aria-label={`${project.title} — ${project.brand}`}
+        >
+          <source src={project.videoSrc} type="video/mp4" />
+          Your browser does not support embedded video.
+        </video>
+      </div>
+    )
+  }
+
+  if (project.posterSrc) {
+    return (
+      <a className="instagram-poster-shell" href={project.instagramUrl} target="_blank" rel="noreferrer">
+        <img src={project.posterSrc} alt={`${project.title} Instagram preview`} loading="lazy" />
+        <span className="instagram-open-link">
+          Open on Instagram <ArrowUpRight aria-hidden="true" />
+        </span>
+      </a>
+    )
+  }
+
+  if (project.instagramUrl) {
+    const embedUrl = getInstagramEmbedUrl(project.instagramUrl)
+    return (
+      <div className="instagram-embed-shell">
+        <iframe
+          className="instagram-embed"
+          src={embedUrl}
+          title={`${project.title} — embedded Instagram content`}
+          loading="lazy"
+          allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+          referrerPolicy="strict-origin-when-cross-origin"
+        />
+      </div>
     )
   }
 
@@ -106,18 +133,45 @@ export function MarketingField() {
         </AnimatePresence>
       </Motion.div>
 
+      <div id="portfolio-library" className="portfolio-library">
+        <Reveal className="resource-panel strategy-library">
+          <div className="library-kicker">
+            <span>Strategy archive</span>
+            <strong>{String(strategyDecks.length).padStart(2, '0')}</strong>
+          </div>
+          <h3>Thinking before posting.</h3>
+          <div className="strategy-link-list">
+            {strategyDecks.map((deck, index) => (
+              <a key={deck.url} href={deck.url} target="_blank" rel="noreferrer">
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <strong>{deck.label}</strong>
+                <ArrowUpRight aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+        </Reveal>
+
+      </div>
+
       <p className="video-upload-note">
         <Plus aria-hidden="true" /> A living reel archive — new campaign work drops straight into its field.
       </p>
 
-      <Reveal className="brand-roster" delay={0.05}>
+      <Reveal id="brand-roster" className="brand-roster" delay={0.05}>
         <div className="roster-title">
           <span>Selected roster</span>
           <strong>Names behind the briefs</strong>
         </div>
         <div className="brand-cloud" aria-label="Brands Nourhan has worked with">
           {brandRoster.map((brand, index) => (
-            <span key={brand}><i>{String(index + 1).padStart(2, '0')}</i>{brand}</span>
+            <a key={brand.url} href={brand.url} target="_blank" rel="noreferrer">
+              <i>{String(index + 1).padStart(2, '0')}</i>
+              <span className="brand-logo" aria-hidden="true">
+                <img src={brand.logoSrc} alt="" loading="lazy" />
+              </span>
+              <span className="brand-name">{brand.name}</span>
+              <ArrowUpRight aria-hidden="true" />
+            </a>
           ))}
         </div>
       </Reveal>

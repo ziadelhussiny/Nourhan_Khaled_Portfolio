@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { filterVideoProjects } from './video-projects'
+import { filterVideoProjects, getInstagramEmbedUrl } from './video-projects'
 
 const projects = [
   { id: 'one', field: 'F&B' },
@@ -21,5 +21,14 @@ describe('filterVideoProjects', () => {
       'one',
       'three',
     ])
+  })
+
+  it('turns Instagram reel and post links into playable embed URLs', () => {
+    expect(getInstagramEmbedUrl('https://www.instagram.com/reel/DXMa1ybjIcN/?stkn=test')).toBe(
+      'https://www.instagram.com/reel/DXMa1ybjIcN/embed/',
+    )
+    expect(getInstagramEmbedUrl('https://www.instagram.com/p/DZm6_7mjGig/?img_index=2')).toBe(
+      'https://www.instagram.com/p/DZm6_7mjGig/embed/',
+    )
   })
 })
